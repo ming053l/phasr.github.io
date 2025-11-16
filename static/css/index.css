@@ -26,12 +26,12 @@ body {
 }
 
 .title-icon {
-  height: 1.2em;  /* 根據標題大小調整 */
+  height: 0.4em;  /* 改小一點 */
   width: auto;
   vertical-align: middle;
-  margin-right: 0.5rem;
+  margin-right: 0.4rem;
+  margin-bottom: 0.1em;  /* 微調垂直位置 */
 }
-
 .publication-title {
 }
 
