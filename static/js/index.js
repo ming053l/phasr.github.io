@@ -76,3 +76,67 @@ $(document).ready(function() {
     bulmaSlider.attach();
 
 })
+
+class BeforeAfter {
+  constructor(options) {
+    this.container = document.querySelector(options.id);
+    if (!this.container) return;
+    
+    this.before = this.container.querySelector('.bal-before');
+    this.beforeInset = this.container.querySelector('.bal-before-inset');
+    this.handle = this.container.querySelector('.bal-handle');
+    
+    this.isDragging = false;
+    
+    this.init();
+  }
+  
+  init() {
+    // Mouse events
+    this.handle.addEventListener('mousedown', this.onDragStart.bind(this));
+    document.addEventListener('mousemove', this.onDrag.bind(this));
+    document.addEventListener('mouseup', this.onDragEnd.bind(this));
+    
+    // Touch events
+    this.handle.addEventListener('touchstart', this.onDragStart.bind(this));
+    document.addEventListener('touchmove', this.onDrag.bind(this));
+    document.addEventListener('touchend', this.onDragEnd.bind(this));
+    
+    // Click on container
+    this.container.addEventListener('click', this.onClick.bind(this));
+  }
+  
+  onDragStart(e) {
+    e.preventDefault();
+    this.isDragging = true;
+  }
+  
+  onDrag(e) {
+    if (!this.isDragging) return;
+    
+    const x = e.type.includes('mouse') ? e.pageX : e.touches[0].pageX;
+    this.updatePosition(x);
+  }
+  
+  onDragEnd() {
+    this.isDragging = false;
+  }
+  
+  onClick(e) {
+    if (e.target === this.handle) return;
+    this.updatePosition(e.pageX);
+  }
+  
+  updatePosition(x) {
+    const rect = this.container.getBoundingClientRect();
+    let offsetX = x - rect.left;
+    
+    // Constrain to container bounds
+    offsetX = Math.max(0, Math.min(offsetX, rect.width));
+    
+    const percentage = (offsetX / rect.width) * 100;
+    
+    this.before.style.width = percentage + '%';
+    this.handle.style.left = percentage + '%';
+  }
+}
