@@ -39,20 +39,6 @@
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
 </head>
-
-  <script>
-  // Initialize all comparison sliders
-  new BeforeAfter({ id: '#compare1' });
-  new BeforeAfter({ id: '#compare2' });
-  new BeforeAfter({ id: '#compare3' });
-  new BeforeAfter({ id: '#compare4' });
-  new BeforeAfter({ id: '#compare5' });
-  new BeforeAfter({ id: '#compare6' });
-  new BeforeAfter({ id: '#compare7' });
-  new BeforeAfter({ id: '#compare8' });
-  new BeforeAfter({ id: '#compare9' });
-  new BeforeAfter({ id: '#compare10' });
-</script>
   
 <body>
 
@@ -217,8 +203,6 @@
         <div class="column is-full-width">
           <h2 class="title is-4">Overview Pipeline</h2>
           <div class="column content">
-            <!-- <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
             <img style="margin-top: -10px;" src="static/images/PhaSR_main.png">
 
             <div class="content has-text-justified">
@@ -231,10 +215,8 @@
               </p>
             </div>
           </div>
-          <h2 class="title is-4">Our rendered direct shadow, indirect shadow and shadow free picture</h2>
+          <h2 class="title is-4">Qualitative Results</h2>
 
-          <!-- Interpolating. -->
-          <!-- <h3 class="title is-4">Interpolation</h3> -->
           <div class="content has-text-justified">
             <img style="width: 960px; height: 300px;" src="static/images/PhaSR_results.png">
           </div>
@@ -549,6 +531,23 @@
     </div>
   </div>
 </footer>
+
+<!-- Initialize comparison sliders after DOM is loaded -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all comparison sliders
+    new BeforeAfter({ id: '#compare1' });
+    new BeforeAfter({ id: '#compare2' });
+    new BeforeAfter({ id: '#compare3' });
+    new BeforeAfter({ id: '#compare4' });
+    new BeforeAfter({ id: '#compare5' });
+    new BeforeAfter({ id: '#compare6' });
+    new BeforeAfter({ id: '#compare7' });
+    new BeforeAfter({ id: '#compare8' });
+    new BeforeAfter({ id: '#compare9' });
+    new BeforeAfter({ id: '#compare10' });
+  });
+</script>
   
 </body>
 </html>
