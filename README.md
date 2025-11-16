@@ -1,7 +1,5 @@
 # PhaSR: Generalized Image Shadow Removal with Physically Aligned Priors
 
-### ✨✨ [CVPR 2026 Submission]
-
 [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ming053l/phasr/issues)
 
 ## [[Paper Link]](https://arxiv.org/abs/XXXX.XXXXX) [[Project Page]](https://ming053l.github.io/phasr/) [[Model zoo]](https://drive.google.com/drive/folders/XXXXX) [[Visual Results]](https://drive.google.com/drive/folders/XXXXX)
@@ -38,8 +36,7 @@ PhaSR addresses these challenges through **dual-level physically aligned prior i
 
 ## Updates
 
-- ✅ 2024-XX-XX: Paper submitted to CVPR 2026.
-- ✅ 2024-XX-XX: Project page released.
+- ✅ 2025-11-16: Project page released.
 - ⏳ Code and pretrained models coming soon.
 
 ## Environment
