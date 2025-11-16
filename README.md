@@ -1,12 +1,13 @@
 # PhaSR: Generalized Image Shadow Removal with Physically Aligned Priors
 
-[![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/ming053l/phasr/issues)
+<img src="./static/images/PhaSR_logo.png" width="600"/>
 
 ## [[Paper Link]](https://arxiv.org/abs/XXXX.XXXXX) [[Project Page]](https://ming053l.github.io/PhaSR/) [[Model zoo]](https://drive.google.com/drive/folders/XXXXX) [[Visual Results]](https://drive.google.com/drive/folders/XXXXX)
 
 [Chia-Ming Lee](https://ming053l.github.io/), [Yu-Fan Lin](https://vanlinlin.github.io/), Yu-Jou Hsiao, Jing-Hui Jung, [Yu-Lun Liu](https://www.cmlab.csie.ntu.edu.tw/~yulunliu/), [Chih-Chung Hsu](https://cchsu.info/)
 
 Natioanl Yang Ming Chiao Tung University, National Cheng Kung University
+
 
 ## Overview
 
