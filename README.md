@@ -44,8 +44,7 @@ PhaSR addresses these challenges through **dual-level physically aligned prior i
 - ⏳ Code and pretrained models coming soon.
 
 ## Environment
-- [PyTorch >= 1.7](https://pytorch.org/)
-- [BasicSR == 1.3.4.9](https://github.com/XPixelGroup/BasicSR/blob/master/INSTALL.md)
+- [PyTorch >= 1.13](https://pytorch.org/)
 
 ### Installation
 ```bash
