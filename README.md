@@ -28,7 +28,7 @@ PhaSR addresses these challenges through **dual-level physically aligned prior i
 
 2. **GSRA (Geometric-Semantic Rectification Attention)** - Cross-modal differential attention (`A_rect = A_sem - λ·A_geo`) harmonizing DepthAnything-v2 geometry with DINO-v2 semantics.
 
-<img src="./static/images/PhaSR_main.png" width="600"/>
+<img src="./static/images/PhaSR_main.png" width="1600"/>
 
 **Benchmark results on shadow removal and ambient lighting normalization.**
 
@@ -50,22 +50,92 @@ PhaSR addresses these challenges through **dual-level physically aligned prior i
 ### Installation
 ```bash
 git clone https://github.com/ming053l/phasr.git
-conda create --name phasr python=3.8 -y
+conda create --name phasr python=3.9 -y
 conda activate phasr
-conda install pytorch==1.12.1 torchvision==0.13.1 cudatoolkit=11.6 -c pytorch -c conda-forge
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 --index-url https://download.pytorch.org/whl/cu118
 cd phasr
 pip install -r requirements.txt
 python setup.py develop
 ```
 
-## How To Test
+## Dataset Structure
 ```bash
-python phasr/test.py -opt options/test/PhaSR_test.yml
+dataset/
+├── train
+      ├── origin <- Shadow-affected images
+      ├── shadow_free <- Shadow-free images
+├── valid
+      ├── origin <- Shadow-affected images
+      ├── shadow_free <- Shadow-free images
+├── test
+      ├── origin <- Shadow-affected images
+```
+
+1. Clone [Depth anything v2](https://github.com/DepthAnything/Depth-Anything-V2.git)
+
+```bash
+git clone https://github.com/DepthAnything/Depth-Anything-V2.git
+```
+2. Download the [pretrain model of depth anything v2](https://huggingface.co/depth-anything/Depth-Anything-V2-Large/resolve/main/depth_anything_v2_vitl.pth?download=true)
+
+3. Run ```calculate_depth.py``` to create the depth map
+* You need to change the ```--source-root``` and ```--ckpt-path``` to your dataset and Depth Anything v2 ckpt path.
+  * e.g. ```python calculate_depth.py --source-root dataset/train --ckpt-paht path_to_depth_anything_v2_ckpt```
+```python
+python get_depth_normap.py
+
+dataset/
+├── train
+      ├── origin <- Shadow-affected images
+      ├── depth <- .npy depth maps
+      ├── shadow_free <- Shadow-free images
+├── valid
+      ├── origin <- Shadow-affected images
+      ├── depth <- .npy depth maps
+      ├── shadow_free <- Shadow-free images
+├── test
+      ├── origin <- Shadow-affected images
+      ├── depth <- .npy depth maps
+```
+
+4. Run ```calculate_normal.py``` to create the normal map.
+* You need to change the ```--source-root``` to your dataset path.
+  * e.g. ```python calculate_depth.py --source-root dataset/train```
+```python
+python calculate_normal.py
+
+dataset/
+├── train
+      ├── origin <- Shadow-affected images
+      ├── depth <- .npy depth maps
+      ├── shadow_free <- Shadow-free images
+      ├── normal <- .npy normal maps
+├── valid
+      ├── origin <- Shadow-affected images
+      ├── depth <- .npy depth maps
+      ├── shadow_free <- Shadow-free images
+      ├── normal <- .npy normal maps
+├── test
+      ├── origin <- Shadow-affected images
+      ├── depth <- .npy depth maps
+      ├── normal <- .npy normal maps
+```
+
+5. Clone [DINOv2](https://github.com/facebookresearch/dinov2.git)
+```bash
+git clone https://github.com/facebookresearch/dinov2.git
+```
+
+## How To Test
+⚠️ You MUST change the path setting in ```test.py```
+```bash
+bash test.sh
 ```
 
 ## How To Train
+⚠️ You MUST change the path setting in ```options.py```
 ```bash
-CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 phasr/train.py -opt options/train/train_PhaSR.yml --launcher pytorch
+bash train.sh
 ```
 
 ## Citations
