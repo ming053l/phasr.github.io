@@ -153,4 +153,4 @@ If our work is helpful to your research, please kindly cite:
 Our work builds upon [OmniSR](https://github.com/xxx/omnisr), [DenseSR](https://github.com/xxx/densesr), [DepthAnything-v2](https://github.com/xxx/depth-anything-v2), and [DINO-v2](https://github.com/facebookresearch/dinov2). We are grateful for their outstanding contributions.
 
 ## Contact
-If you have any questions, please email [your-email] to discuss with the authors.
+If you have any questions, please email Chia-Ming Lee(zuw408421476@gmail.com), Yu-Fan Lin(aas12as12as12tw@gmail.com) to discuss with the authors.
