@@ -43,9 +43,6 @@ PhaSR addresses these challenges through **dual-level physically aligned prior i
 - ✅ 2025-11-16: Project page released.
 - ⏳ Code and pretrained models coming soon.
 
-## Environment
-- [PyTorch >= 1.13](https://pytorch.org/)
-
 ### Installation
 ```bash
 git clone https://github.com/ming053l/phasr.git
